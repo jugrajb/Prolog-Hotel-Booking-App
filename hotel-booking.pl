@@ -34,7 +34,7 @@ server(Port) :-
 
 booking_page(_Request) :-
 	reply_html_page(
-	    title('SWI-Prolog chat demo'),
+	    title('SWI-Prolog Booking Demo'),
 	    \booking_page).
 
 booking_page -->
@@ -44,45 +44,33 @@ booking_page -->
             div([ id(row1) ], [
                 div([ id(booking1) ], [
                     div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
+                    div([ id(form)] , [
+                        div([ id(info) ], []),
+                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                    ])
                 ]),
                 div([ id(booking1) ], [
                     div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
-                ]),
-                div([ id(booking1) ], [
-                    div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
-                ]),
-                div([ id(booking1) ], [
-                    div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
+                    div([ id(form)], [
+                        div([ id(info) ], []),
+                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                    ])
                 ])
             ]),
             div([ id(row2) ], [
                 div([ id(booking1) ], [
                     div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
+                    div([ id(form)], [
+                        div([ id(info) ], []),
+                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                    ])
                 ]),
                 div([ id(booking1) ], [
                     div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
-                ]),
-                div([ id(booking1) ], [
-                    div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
-                ]),
-                div([ id(booking1) ], [
-                    div([ id(image)] , []),
-                    div([ id(info) ], []),
-                    button([id(book)], ['Book Now'])
+                    div([ id(form)]  , [
+                        div([ id(info) ], []),
+                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                    ])
                 ])
             ])
            ])
@@ -90,9 +78,9 @@ booking_page -->
 
 style -->
 	html(style(['body,html { 
-                    height:100%; \c
-                    overflow: hidden; \c
-                    font-family: sans-serif; \c
+                    height:100%;
+                    overflow: hidden;
+                    font-family: sans-serif;
                     background: url(https://freefrontend.com/assets/img/css-hero-effects/Diagonal-Hero-Div-With-CSS-Star-Animation-Background.gif) no-repeat center center;
                     background-size: cover;
                     margin: 0px;
@@ -111,11 +99,11 @@ style -->
                     margin-right: 50px;
                 }\n',
                 '#row1 { 
-                    display: flex; \c
+                    display: flex;
                     justify-content: space-evenly;
                 }\n',
                 '#row2 { 
-                    display: flex; \c 
+                    display: flex; 
                     justify-content: space-evenly;
                 }\n',
                 '#booking1 { 
@@ -123,30 +111,50 @@ style -->
                     border-width: medium;
                     padding: 5px;
                     height: 320px;
-                    width: 300px;
+                    width: 650px;
                     border-radius: 10px;
                     background-color: whitesmoke;
+                    display: flex;
                 }\n',
                 '#image { 
-                    height: 175px;
-                    width: 100%;
+                    height: 100%;
+                    width: 500px;
                     border-radius: 10px;
                     background-color: grey;
                 }\n',
                 '#info { 
-                    height: 110px;
-                    width: 100%;
+                    height: 265px;
+                    width: 290px;
                 }\n',
                 '#book { 
                     height: 30px;
-                    border-color: #55e674;
-                    width: 100%;
-                    background-color: #55e674;
+                    border-color: #2b6dd6;
+                    width: 300px;
+                    background-color: #2b6dd6;
                     color: white;
                     border-radius: 10px;
                     outline: none;
-                }\n'
+                }\n',
+                '#form {
+                    width: 300px;
+                    padding: 20px; 
+                }\n' 
 		   ])).
+
+script -->
+	{ http_link_to_id(booking_websocket, [], WebSocketURL) },
+	js_script({|javascript(WebSocketURL)||
+        function handleInput(e) {
+            console.log("foo");
+        }
+
+        window.addEventListener("DOMContentLoaded", openWebSocket, false);
+	|}).
+
+room(r1, 4).
+room(r2, 1).
+room(r3, 2).
+room(r4, 3).
 
 accept_booking(WebSocket) :-
 	hub_add(booking, WebSocket, _Id).
