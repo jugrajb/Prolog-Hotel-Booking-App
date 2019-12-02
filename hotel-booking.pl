@@ -12,7 +12,7 @@
 :- use_module(library(debug)).
 
 server :-
-	server(3050).
+	server(3070).
 
 server(Port) :-
 	(   current_prolog_flag(gui, true)
@@ -46,14 +46,14 @@ booking_page -->
                     div([ id(image)] , []),
                     div([ id(form)] , [
                         div([ id(info) ], []),
-                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                        button([id(book), onclick('handleInput(event)')], ['Book Now'])
                     ])
                 ]),
                 div([ id(booking1) ], [
                     div([ id(image)] , []),
                     div([ id(form)], [
                         div([ id(info) ], []),
-                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                        button([id(book), onclick('handleInput(event)')], ['Book Now'])
                     ])
                 ])
             ]),
@@ -62,19 +62,20 @@ booking_page -->
                     div([ id(image)] , []),
                     div([ id(form)], [
                         div([ id(info) ], []),
-                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                        button([id(book), onclick('handleInput(event)')], ['Book Now'])
                     ])
                 ]),
                 div([ id(booking1) ], [
                     div([ id(image)] , []),
                     div([ id(form)]  , [
                         div([ id(info) ], []),
-                        button([id(book), onkeypress('handleInput(event)')], ['Book Now'])
+                        button([id(book), onclick('handleInput(event)')], ['Book Now'])
                     ])
                 ])
             ])
            ])
-	     ]).
+	     ]),
+    script.
 
 style -->
 	html(style(['body,html { 
@@ -146,6 +147,16 @@ script -->
 	js_script({|javascript(WebSocketURL)||
         function handleInput(e) {
             console.log("foo");
+        }
+        
+        function openWebSocket() {
+          connection = new WebSocket("ws://"+window.location.host+WebSocketURL,
+        			     ['booking']);
+          console.log("connect");
+          connection.onerror = function (error) {
+            console.log('WebSocket Error ' + error);
+          };
+        
         }
 
         window.addEventListener("DOMContentLoaded", openWebSocket, false);
