@@ -127,27 +127,28 @@ booking_page -->
                 ])
             ])
         ]),
+        button([id(output), onclick = 'downloadBookings()'], ['Optimize bookings']),
         div([ id = 'modal' ], [
             div([ id = 'modal-content'], [
                 form([ id(form) ], [
                     label(for = 'name', 'Name'),
                     br([]),
-                    input([id = 'input', type = 'text', placeholder = 'Name', name = 'name', required]),
+                    input([id = 'nameinput', type = 'text', placeholder = 'Name', name = 'name', required]),
                     br([]),
                     label(for = 'people', 'Number of people'),
                     br([]),
-                    input([id = 'input', type = 'text', placeholder = 'People', name = 'people', required]),
+                    input([id = 'peopleinput', type = 'number', placeholder = 'People', name = 'people', required]),
                     br([]),
                     label(for = 'check-in', 'Check-in date'),
                     br([]),
-                    input([id = 'input', type = 'text', placeholder = 'Check-in', name = 'check-in', required]),
+                    input([id = 'checkininput', type = 'number',  placeholder = 'Check-in', name = 'check-in', required]),
                     br([]),
                     label(for = duration, 'How long is your stay?'),
                     br([]),
-                    input([id = 'input', type = 'text', placeholder = 'Duration', name = 'duration', required]),
+                    input([id = 'durationinput', type = 'number', placeholder = 'Duration', name = 'duration', required]),
                     br([]),
                     br([]),
-                    button([id = 'submit-form', type = 'submit'], ['Submit'])
+                    button([id = 'submit-form', type = 'submit', onclick = 'submitBookingForm(event)'], ['Submit'])
                 ])
             ])
         ])
@@ -304,7 +305,7 @@ style -->
                     padding: 10px;
                     background-color: white;
                 }\n',
-                '#input{
+                'input{
                     width: 250px;
                     outline: none;
                     padding: 15px;
@@ -341,7 +342,7 @@ script -->
           };
         
         }
-
+        window.KnowledgeBase = '';
         var modal = document.getElementById("modal");
 
         var btnModal1 = document.getElementById("book1");
@@ -350,37 +351,124 @@ script -->
         var btnModal4 = document.getElementById("book4");
 
         btnModal1.onclick = function(event) {
-            console.log("foo") 
             modal.style.display = "block";
         }
-        
+
+        submitBookingForm = function(event) {
+            event.preventDefault();
+            let numpeople = document.getElementById('peopleinput');
+            let checkin = document.getElementById('checkininput');
+            let duration = document.getElementById('durationinput');
+            let name = document.getElementById('nameinput');
+            document.getElementById("modal").style.display = "none";
+            window.KnowledgeBase += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            name.value = null;
+            numpeople.value = null;
+            checkin.value = null;
+            duration.value = null;
+        }
+
         btnModal2.onclick = function(event) {
-            console.log("foo") 
             modal.style.display = "block";
         }
         
         btnModal3.onclick = function(event) {
-            console.log("foo") 
             modal.style.display = "block";
         }
                 
         btnModal4.onclick = function(event) {
-            console.log("foo") 
             modal.style.display = "block";
         }
         
         window.onclick = function(event) {
-            console.log("boo")
             if(event.target == modal) 
                 modal.style.display = "none";
         }
+
+        downloadBookings = function() {
+            let a = document.createElement('a');
+            a.download = 'optimizebookings.pl'
+            KnowledgeBase+=`room(r1, 5, 400).
+room(r2, 1, 100).
+room(r3, 2, 200).
+room(r4, 3, 300).
+
+fitsroom(P, R, D) :-
+    booking(P, N, D, _),
+    room(R, C, _),
+    N =< C.
+
+roomsok([]).
+roomsok([(_, R1, D)|B]) :-
+    \+ member((_,R1, D), B),
+    roomsok(B).
+    
+peopleok([]).
+peopleok([(P, _, D)|B]) :-
+    \+ member((P, _, D), B),
+    peopleok(B).
+
+consistentdates([]).
+consistentdates([(P, R, D)|B]):-
+    booking(P, _, D, L),
+    E is D + L - 1,
+    foreach(between(D, E, D1), not(member((_, R, D1), B))),
+    consistentdates(B).
+
+
+consistentrooms([]).
+consistentrooms([(P, R1, _)|B]):-
+    foreach(member((P,R2, _), B), R1 = R2),
+    consistentrooms(B).
+
+
+validbooking(B) :-
+    sort(2, @=<, B, Bs), 
+    consistentdates(Bs),
+    peopleok(Bs).
+
+% https://rosettacode.org/wiki/Power_set#Prolog
+
+powerset(X,Y) :- bagof( S, (subseq(S,X), validbooking(S)), Y).
+ 
+subseq( [], []).
+subseq( [], [_|_]).
+subseq( [X|Xs], [X|Ys] ) :- subseq(Xs, Ys).
+subseq( [X|Xs], [_|Ys] ) :- append(_, [X|Zs], Ys), subseq(Xs, Zs).
+
+lenlist([], 0).
+lenlist([_|T], N):-
+    lenlist(T, X),
+    N is X + 1.
+
+
+sumcost([],0).
+sumcost([(_,R1, _)|T], C):-
+    room(R1, _, Y),
+    sumcost(T, X),
+    C is X + Y.
+    
+maxfirst(M, M1):-
+    sumcost(M, L),
+    sumcost(M1, L1),
+    L >= L1.
+
+maximize([], []).
+maximize(L, M) :-
+    member(M, L),
+    foreach(member(M1, L), maxfirst(M, M1)).
+
+allvalidbook(Bestbooking, Total):-
+    findall((Person, Room, D), (fitsroom(Person, Room, D)), Bag),
+    powerset(Bag,Y),
+ 	maximize(Y, Bestbooking),
+    sumcost(Bestbooking, Total).`
+            a.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase);
+            a.click();
+        }
+
         window.addEventListener("DOMContentLoaded", openWebSocket, false);
 	|}).
-
-room(r1, 4).
-room(r2, 1).
-room(r3, 2).
-room(r4, 3).
 
 accept_booking(WebSocket) :-
 	hub_add(booking, WebSocket, _Id).
