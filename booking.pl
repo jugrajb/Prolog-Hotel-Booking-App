@@ -447,7 +447,13 @@ script -->
           };
         
         }
-        window.KnowledgeBase = '';
+        var optimize = '';
+        window.KnowledgeBase1 = '';
+        window.KnowledgeBase2 = '';
+        window.KnowledgeBase3 = '';
+        window.KnowledgeBase4 = '';
+        window.activeHotel;
+
         var modal = document.getElementById("modal");
 
         var btnModal1 = document.getElementById("book1");
@@ -456,7 +462,9 @@ script -->
         var btnModal4 = document.getElementById("book4");
 
         btnModal1.onclick = function(event) {
+        	window.activeHotel = 1;
             modal.style.display = "block";
+
         }
 
         submitBookingForm = function(event) {
@@ -466,22 +474,47 @@ script -->
             let duration = document.getElementById('durationinput');
             let name = document.getElementById('nameinput');
             document.getElementById("modal").style.display = "none";
-            window.KnowledgeBase += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
-            name.value = null;
-            numpeople.value = null;
-            checkin.value = null;
-            duration.value = null;
+            if (window.activeHotel == 1){
+            	window.KnowledgeBase1 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+           		numpeople.value = null;
+           		checkin.value = null;
+            	duration.value = null;
+            } else if (window.activeHotel == 2){
+            	window.KnowledgeBase2 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+           		numpeople.value = null;
+           		checkin.value = null;
+            	duration.value = null;
+            } else if (window.activeHotel == 3){
+            	window.KnowledgeBase3 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+	           	numpeople.value = null;
+	           	checkin.value = null;
+	            duration.value = null;
+            } else {
+            	window.KnowledgeBase4 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+	           	numpeople.value = null;
+	           	checkin.value = null;
+	            duration.value = null;
+            }
+            
         }
 
+        
         btnModal2.onclick = function(event) {
+        	window.activeHotel = 2;
             modal.style.display = "block";
         }
         
         btnModal3.onclick = function(event) {
+        	window.activeHotel = 3;
             modal.style.display = "block";
         }
                 
         btnModal4.onclick = function(event) {
+        	window.activeHotel = 4
             modal.style.display = "block";
         }
         
@@ -490,10 +523,9 @@ script -->
                 modal.style.display = "none";
         }
 
-        downloadBookings = function() {
-            let a = document.createElement('a');
-            a.download = 'optimizebookings.pl'
-            KnowledgeBase+=`room(r1, 5, 400).
+        downloadBookings = function() { 
+
+        	optimize+=`room(r1, 5, 400).
 
 room(r2, 1, 100).
 room(r3, 2, 200).
@@ -569,9 +601,31 @@ allvalidbook(Bestbooking, Total):-
     powerset(Bag,Y),
  	maximize(Y, Bestbooking),
     sumcost(Bestbooking, Total).`
-            a.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase);
-            a.click();
-        }
+
+            let hotel1 = document.createElement('a');
+            hotel1.download = 'h1optimizebookings.pl';
+            KnowledgeBase1+= optimize;
+	        hotel1.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase1);
+	        hotel1.click();
+
+	        let hotel2 = document.createElement('a');
+	        hotel2.download = 'h2optimizebookings.pl';
+	        KnowledgeBase2+= optimize;
+	        hotel2.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase2);
+	        hotel2.click();
+
+	        let hotel3 = document.createElement('a');
+	        hotel3.download = 'h3optimizebookings.pl';
+	        KnowledgeBase3+= optimize;
+	        hotel3.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase3);
+	        hotel3.click();
+
+	        let hotel4 = document.createElement('a');
+	        hotel4.download = 'h4optimizebookings.pl';
+	        KnowledgeBase4+= optimize;
+	        hotel4.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase4);
+	        hotel4.click();
+	        }
 
         window.addEventListener("DOMContentLoaded", openWebSocket, false);
 	|}).
