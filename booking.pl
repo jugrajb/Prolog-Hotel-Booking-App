@@ -56,7 +56,7 @@ booking_page -->
                                 b([], ['2'])
                             ]),
                             div([ id(infodet)], [
-                                b([], ['Address']),
+                                b([], ['Room Number']),
                                 b([], ['155 Washington St.'])
                             ])
                         ]),
@@ -76,7 +76,7 @@ booking_page -->
                                 b([], ['3'])
                             ]),
                             div([ id(infodet)], [
-                                b([], ['Address']),
+                                b([], ['Room Number']),
                                 b([], ['155 Washington St.'])
                             ])
                         ]),
@@ -98,7 +98,7 @@ booking_page -->
                                 b([], ['$450'])
                             ]),
                             div([ id(infodet)], [
-                                b([], ['Address']),
+                                b([], ['Room Number']),
                                 b([], ['155 Washington St.'])
                             ])
                         ]),
@@ -118,7 +118,7 @@ booking_page -->
                                 b([], ['$450'])
                             ]),
                             div([ id(infodet)], [
-                                b([], ['Address']),
+                                b([], ['Room Number']),
                                 b([], ['155 Washington St.'])
                             ])
                         ]),
@@ -198,7 +198,7 @@ style -->
                     width: 500px;
                     border-radius: 10px;
                     background-color: grey;
-                    background: url(https://www.freevector.com/uploads/vector/preview/28404/3d4.jpg) no-repeat center center;
+                    background: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/dfd4e752958729.5926f43a3b605.jpg);
                     background-size: cover;
                 }\n',
                 '#image2 { 
@@ -206,7 +206,7 @@ style -->
                     width: 500px;
                     border-radius: 10px;
                     background-color: grey;
-                    background: url(https://image.freepik.com/free-vector/isometric-hotel-building_23-2148163848.jpg) no-repeat center center;
+                    background: url(https://image.freepik.com/free-vector/3d-isometric-room_23-2147526819.jpg) no-repeat center center;
                     background-size: 122%;
                 }\n',
                 '#image3 { 
@@ -214,7 +214,7 @@ style -->
                     width: 500px;
                     border-radius: 10px;
                     background-color: grey;
-                    background: url(https://www.freevector.com/uploads/vector/preview/28436/3D5.jpg) no-repeat center center;
+                    background: url(https://static.vecteezy.com/system/resources/previews/000/105/562/non_2x/free-isometric-living-room-vector.png) no-repeat center center;
                     background-size: cover;
                 }\n',
                 '#image4 { 
@@ -222,7 +222,7 @@ style -->
                     width: 500px;
                     border-radius: 10px;
                     background-color: grey;
-                    background: url(https://img.freepik.com/free-vector/hotel-building-isometric_98292-5172.jpg?size=338&ext=jpg) no-repeat center center;
+                    background: url(https://static.vecteezy.com/system/resources/previews/000/158/544/non_2x/ironing-room-isometric-free-vector.jpg) no-repeat center center;
                     background-size: cover;
                 }\n',
                 '#info { 
