@@ -47,17 +47,38 @@ booking_page -->
                     div([ id(image1)] , []),
                     div([ id(form)] , [
                         div([ id(info) ], [
-                            div([ id(infodet)], [
-                                b([], ['Price:']),
-                                b([], ['$450'])
+                        	div([ id(infodet)], [
+                                h3(id = hotelHeader, ['Hotel 1'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Max Occupancy']),
-                                b([], ['2'])
+                                h4(id = heading4, ['Room Max Occupancy']),
+                                h4(id = heading4, ['Price'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Room Number']),
-                                b([], ['155 Washington St.'])
+                                b(id = heading6, ['1']),
+                                b(id = heading6, ['$100'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['2']),
+                                b(id = heading6, ['$200'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['3']),
+                                b(id = heading6, ['$300'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['4']),
+                                b(id = heading6, ['$400'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['Address']),
+                                b(id = heading6, ['1935, Lower Mall.'])
                             ])
                         ]),
                         button([id(book1)], ['Book Now'])
@@ -67,17 +88,38 @@ booking_page -->
                     div([ id(image2)] , []),
                     div([ id(form)], [
                         div([ id(info) ], [
-                            div([ id(infodet)], [
-                                b([], ['Price:']),
-                                b([], ['$650'])
+                        	div([ id(infodet)], [
+                                h3(id = hotelHeader, ['Hotel 2'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Max Occupancy']),
-                                b([], ['3'])
+                                h4(id = heading4, ['Room Max Occupancy']),
+                                h4(id = heading4, ['Price'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Room Number']),
-                                b([], ['155 Washington St.'])
+                                b(id = heading6, ['1']),
+                                b(id = heading6, ['$100'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['2']),
+                                b(id = heading6, ['$200'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['3']),
+                                b(id = heading6, ['$300'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['4']),
+                                b(id = heading6, ['$400'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['Address']),
+                                b(id = heading6, ['2525, West Mall.'])
                             ])
                         ]),
                         button([id(book2)], ['Book Now'])
@@ -89,17 +131,38 @@ booking_page -->
                     div([ id(image3)] , []),
                     div([ id(form)], [
                         div([ id(info) ], [
-                            div([ id(infodet)], [
-                                b([], ['Price:']),
-                                b([], ['$450'])
+                        	div([ id(infodet)], [
+                                h3(id = hotelHeader, ['Hotel 3'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Max Occupancy']),
-                                b([], ['$450'])
+                                h4(id = heading4, ['Room Max Occupancy']),
+                                h4(id = heading4, ['Price'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Room Number']),
-                                b([], ['155 Washington St.'])
+                                b(id = heading6, ['1']),
+                                b(id = heading6, ['$100'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['2']),
+                                b(id = heading6, ['$200'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['3']),
+                                b(id = heading6, ['$300'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['4']),
+                                b(id = heading6, ['$400'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['Address']),
+                                b(id = heading6, ['6363, Agronomy Rd.'])
                             ])
                         ]),
                         button([id(book3)], ['Book Now'])
@@ -109,17 +172,38 @@ booking_page -->
                     div([ id(image4)] , []),
                     div([ id(form)]  , [
                         div([ id(info) ], [
-                            div([ id(infodet)], [
-                                b([], ['Price:']),
-                                b([], ['$450'])
+                        	div([ id(infodet)], [
+                                h3(id = hotelHeader, ['Hotel 4'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Max Occupancy']),
-                                b([], ['$450'])
+                                h4(id = heading4, ['Room Max Occupancy']),
+                                h4(id = heading4, ['Price'])
                             ]),
+                            br([]),
                             div([ id(infodet)], [
-                                b([], ['Room Number']),
-                                b([], ['155 Washington St.'])
+                                b(id = heading6, ['1']),
+                                b(id = heading6, ['$100'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['2']),
+                                b(id = heading6, ['$200'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['3']),
+                                b(id = heading6, ['$300'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['4']),
+                                b(id = heading6, ['$400'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
+                                b(id = heading6, ['Address']),
+                                b(id = heading6, ['5960, Student Union Blvd.'])
                             ])
                         ]),
                         button([id(book4)], ['Book Now'])
@@ -194,6 +278,25 @@ style -->
                     background-color: whitesmoke;
                     display: flex;
                 }\n',
+                '#hotelHeader {
+                	position: relative;
+                	top: -20px;
+                	height: -15px;
+                	margin: 0px;
+                	padding: 0px;
+                }\n',
+                '#heading4 {
+                	position: relative;
+                	top: -25px;
+                	margin: 0px;
+                	padding: 0px;
+                }\n',
+                '#heading6 {
+                	position: relative;
+                	top: -30px;
+                	margin: 0px;
+                	padding: 0px;
+                }\n',
                 '#image1 { 
                     height: 100%;
                     width: 500px;
@@ -236,6 +339,8 @@ style -->
                     padding-bottom: 100px;
                 }\n',
                 '#infodet {
+                	height: auto;
+                	margin: 0px;
                     display: flex;
                     justify-content: space-between;
                     padding-right: 20px;
@@ -342,7 +447,13 @@ script -->
           };
         
         }
-        window.KnowledgeBase = '';
+        var optimize = '';
+        window.KnowledgeBase1 = '';
+        window.KnowledgeBase2 = '';
+        window.KnowledgeBase3 = '';
+        window.KnowledgeBase4 = '';
+        window.activeHotel;
+
         var modal = document.getElementById("modal");
 
         var btnModal1 = document.getElementById("book1");
@@ -351,7 +462,9 @@ script -->
         var btnModal4 = document.getElementById("book4");
 
         btnModal1.onclick = function(event) {
+        	window.activeHotel = 1;
             modal.style.display = "block";
+
         }
 
         submitBookingForm = function(event) {
@@ -361,22 +474,47 @@ script -->
             let duration = document.getElementById('durationinput');
             let name = document.getElementById('nameinput');
             document.getElementById("modal").style.display = "none";
-            window.KnowledgeBase += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
-            name.value = null;
-            numpeople.value = null;
-            checkin.value = null;
-            duration.value = null;
+            if (window.activeHotel == 1){
+            	window.KnowledgeBase1 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+           		numpeople.value = null;
+           		checkin.value = null;
+            	duration.value = null;
+            } else if (window.activeHotel == 2){
+            	window.KnowledgeBase2 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+           		numpeople.value = null;
+           		checkin.value = null;
+            	duration.value = null;
+            } else if (window.activeHotel == 3){
+            	window.KnowledgeBase3 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+	           	numpeople.value = null;
+	           	checkin.value = null;
+	            duration.value = null;
+            } else {
+            	window.KnowledgeBase4 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	name.value = null;
+	           	numpeople.value = null;
+	           	checkin.value = null;
+	            duration.value = null;
+            }
+            
         }
 
+        
         btnModal2.onclick = function(event) {
+        	window.activeHotel = 2;
             modal.style.display = "block";
         }
         
         btnModal3.onclick = function(event) {
+        	window.activeHotel = 3;
             modal.style.display = "block";
         }
                 
         btnModal4.onclick = function(event) {
+        	window.activeHotel = 4
             modal.style.display = "block";
         }
         
@@ -385,13 +523,13 @@ script -->
                 modal.style.display = "none";
         }
 
-        downloadBookings = function() {
-            let a = document.createElement('a');
-            a.download = 'optimizebookings.pl'
-            KnowledgeBase+=`room(r1, 5, 400).
-room(r2, 1, 100).
-room(r3, 2, 200).
-room(r4, 3, 300).
+        downloadBookings = function() { 
+
+        	optimize+=`room(r4, 4, 400).
+
+room(r1, 1, 100).
+room(r2, 2, 200).
+room(r3, 3, 300).
 
 fitsroom(P, R, D) :-
     booking(P, N, D, _),
@@ -400,12 +538,12 @@ fitsroom(P, R, D) :-
 
 roomsok([]).
 roomsok([(_, R1, D)|B]) :-
-    \+ member((_,R1, D), B),
+    \\+ member((_,R1, D), B),
     roomsok(B).
     
 peopleok([]).
 peopleok([(P, _, D)|B]) :-
-    \+ member((P, _, D), B),
+    \\+ member((P, _, D), B),
     peopleok(B).
 
 consistentdates([]).
@@ -463,9 +601,31 @@ allvalidbook(Bestbooking, Total):-
     powerset(Bag,Y),
  	maximize(Y, Bestbooking),
     sumcost(Bestbooking, Total).`
-            a.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase);
-            a.click();
-        }
+
+            let hotel1 = document.createElement('a');
+            hotel1.download = 'h1optimizebookings.pl';
+            KnowledgeBase1+= optimize;
+	        hotel1.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase1);
+	        hotel1.click();
+
+	        let hotel2 = document.createElement('a');
+	        hotel2.download = 'h2optimizebookings.pl';
+	        KnowledgeBase2+= optimize;
+	        hotel2.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase2);
+	        hotel2.click();
+
+	        let hotel3 = document.createElement('a');
+	        hotel3.download = 'h3optimizebookings.pl';
+	        KnowledgeBase3+= optimize;
+	        hotel3.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase3);
+	        hotel3.click();
+
+	        let hotel4 = document.createElement('a');
+	        hotel4.download = 'h4optimizebookings.pl';
+	        KnowledgeBase4+= optimize;
+	        hotel4.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase4);
+	        hotel4.click();
+	        }
 
         window.addEventListener("DOMContentLoaded", openWebSocket, false);
 	|}).
