@@ -58,12 +58,12 @@ booking_page -->
                             br([]),
                             div([ id(infodet)], [
                                 b(id = heading6, ['1']),
-                                b(id = heading6, ['$100'])
+                                b(id = heading6, ['$50'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
                                 b(id = heading6, ['2']),
-                                b(id = heading6, ['$200'])
+                                b(id = heading6, ['$150'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
@@ -73,7 +73,7 @@ booking_page -->
                             br([]),
                             div([ id(infodet)], [
                                 b(id = heading6, ['4']),
-                                b(id = heading6, ['$400'])
+                                b(id = heading6, ['$500'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
@@ -142,22 +142,22 @@ booking_page -->
                             br([]),
                             div([ id(infodet)], [
                                 b(id = heading6, ['1']),
-                                b(id = heading6, ['$100'])
-                            ]),
-                            br([]),
-                            div([ id(infodet)], [
-                                b(id = heading6, ['2']),
                                 b(id = heading6, ['$200'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
+                                b(id = heading6, ['2']),
+                                b(id = heading6, ['$400'])
+                            ]),
+                            br([]),
+                            div([ id(infodet)], [
                                 b(id = heading6, ['3']),
-                                b(id = heading6, ['$300'])
+                                b(id = heading6, ['$600'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
                                 b(id = heading6, ['4']),
-                                b(id = heading6, ['$400'])
+                                b(id = heading6, ['$800'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
@@ -179,16 +179,6 @@ booking_page -->
                             div([ id(infodet)], [
                                 h4(id = heading4, ['Room Max Occupancy']),
                                 h4(id = heading4, ['Price'])
-                            ]),
-                            br([]),
-                            div([ id(infodet)], [
-                                b(id = heading6, ['1']),
-                                b(id = heading6, ['$100'])
-                            ]),
-                            br([]),
-                            div([ id(infodet)], [
-                                b(id = heading6, ['2']),
-                                b(id = heading6, ['$200'])
                             ]),
                             br([]),
                             div([ id(infodet)], [
@@ -468,10 +458,24 @@ script -->
         
         }
         var optimize = '';
-        window.KnowledgeBase1 = '';
-        window.KnowledgeBase2 = '';
-        window.KnowledgeBase3 = '';
-        window.KnowledgeBase4 = '';
+        window.KnowledgeBase1 = `room(r4, 4, 500).
+room(r1, 1, 50).
+room(r2, 2, 150).
+room(r3, 3, 300).
+`;
+            window.KnowledgeBase2 = `room(r4, 4, 400).
+room(r1, 1, 100).
+room(r2, 2, 200).
+room(r3, 3, 300).
+`;
+            window.KnowledgeBase3 = `room(r4, 4, 800).
+room(r1, 1, 200).
+room(r2, 2, 400).
+room(r3, 3, 600).
+`;
+            window.KnowledgeBase4 = `room(r4, 4, 400).
+room(r3, 3, 300).
+`;
         window.activeHotel;
 
         var modal = document.getElementById("modal");
@@ -545,11 +549,7 @@ script -->
 
         downloadBookings = function() { 
 
-        	optimize+=`room(r4, 4, 400).
-
-room(r1, 1, 100).
-room(r2, 2, 200).
-room(r3, 3, 300).
+        	optimize+=`
 
 fitsroom(P, R, D) :-
     booking(P, N, D, _),
@@ -645,6 +645,25 @@ allvalidbook(Bestbooking, Total):-
 	        KnowledgeBase4+= optimize;
 	        hotel4.href = "data:application/octet-stream,"+encodeURIComponent(KnowledgeBase4);
 	        hotel4.click();
+
+            window.KnowledgeBase1 = `room(r4, 4, 500).
+room(r1, 1, 50).
+room(r2, 2, 150).
+room(r3, 3, 300).
+`;
+            window.KnowledgeBase2 = `room(r4, 4, 400).
+room(r1, 1, 100).
+room(r2, 2, 200).
+room(r3, 3, 300).
+`;
+            window.KnowledgeBase3 = `room(r4, 4, 800).
+room(r1, 1, 200).
+room(r2, 2, 400).
+room(r3, 3, 600).
+`;
+            window.KnowledgeBase4 = `room(r4, 4, 400).
+room(r3, 3, 300).
+`;
 	        }
 
         window.addEventListener("DOMContentLoaded", openWebSocket, false);
