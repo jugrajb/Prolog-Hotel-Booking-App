@@ -601,10 +601,11 @@ lenlist([_|T], N):-
 
 
 sumcost([],0).
-sumcost([(_,R1, _)|T], C):-
+sumcost([(P,R1, _)|T], C):-
     room(R1, _, Y),
+    booking(P, _, _, D),
     sumcost(T, X),
-    C is X + Y.
+    C is X + Y*D.
     
 maxfirst(M, M1):-
     sumcost(M, L),
