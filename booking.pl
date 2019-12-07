@@ -438,7 +438,9 @@ style -->
                 '#footer{
                     background-color: #000000;
                     height: 140px;
-                    width: 100%
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
                     margin-top: 20px;
                 }\n',
                 '#output{
@@ -447,7 +449,6 @@ style -->
                     border-color: #2b6dd6;
                     outline: none;
                     width: 200px;
-                    margin-left: 44%;
                     margin-top: 40px;
                     height: 50px;
                     border-radius: 30px;
