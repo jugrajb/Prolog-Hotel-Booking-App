@@ -475,25 +475,25 @@ script -->
             let name = document.getElementById('nameinput');
             document.getElementById("modal").style.display = "none";
             if (window.activeHotel == 1){
-            	window.KnowledgeBase1 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	window.KnowledgeBase1 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
             	name.value = null;
            		numpeople.value = null;
            		checkin.value = null;
             	duration.value = null;
             } else if (window.activeHotel == 2){
-            	window.KnowledgeBase2 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	window.KnowledgeBase2 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
             	name.value = null;
            		numpeople.value = null;
            		checkin.value = null;
             	duration.value = null;
             } else if (window.activeHotel == 3){
-            	window.KnowledgeBase3 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	window.KnowledgeBase3 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
             	name.value = null;
 	           	numpeople.value = null;
 	           	checkin.value = null;
 	            duration.value = null;
             } else {
-            	window.KnowledgeBase4 += 'booking('+name.value+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
+            	window.KnowledgeBase4 += 'booking('+name.value.toLowerCase()+','+numpeople.value+','+checkin.value+','+duration.value+').\n';
             	name.value = null;
 	           	numpeople.value = null;
 	           	checkin.value = null;
@@ -525,11 +525,11 @@ script -->
 
         downloadBookings = function() { 
 
-        	optimize+=`room(r1, 5, 400).
+        	optimize+=`room(r4, 4, 400).
 
-room(r2, 1, 100).
-room(r3, 2, 200).
-room(r4, 3, 300).
+room(r1, 1, 100).
+room(r2, 2, 200).
+room(r3, 3, 300).
 
 fitsroom(P, R, D) :-
     booking(P, N, D, _),
@@ -538,12 +538,12 @@ fitsroom(P, R, D) :-
 
 roomsok([]).
 roomsok([(_, R1, D)|B]) :-
-    \+ member((_,R1, D), B),
+    \\+ member((_,R1, D), B),
     roomsok(B).
     
 peopleok([]).
 peopleok([(P, _, D)|B]) :-
-    \+ member((P, _, D), B),
+    \\+ member((P, _, D), B),
     peopleok(B).
 
 consistentdates([]).
