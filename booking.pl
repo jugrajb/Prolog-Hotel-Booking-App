@@ -211,7 +211,6 @@ booking_page -->
                 ])
             ])
         ]),
-        button([id(output), onclick = 'downloadBookings()'], ['Optimize bookings']),
         div([ id = 'modal' ], [
             div([ id = 'modal-content'], [
                 form([ id(form) ], [
@@ -235,6 +234,9 @@ booking_page -->
                     button([id = 'submit-form', type = 'submit', onclick = 'submitBookingForm(event)'], ['Submit'])
                 ])
             ])
+        ]),
+        div([ id(footer) ], [
+            button([id(output), onclick = 'downloadBookings()'], ['Optimize bookings'])
         ])
 	]),
     script.
@@ -242,7 +244,7 @@ booking_page -->
 style -->
 	html(style(['body,html { 
                     height:100%;
-                    overflow-y: hidden;
+                    overflow-y: scroll;
                     font-family: sans-serif;
                     background: url(https://freefrontend.com/assets/img/css-hero-effects/Diagonal-Hero-Div-With-CSS-Star-Animation-Background.gif) no-repeat center center;
                     background-size: cover;
@@ -253,7 +255,7 @@ style -->
                    color: white;
                 }\n',
 		        '#bookingMain { 
-                    height: 88%;
+                    height: 100vh;
                     margin-top: -20px;
                     display: flex;
                     flex-direction: column;
@@ -432,7 +434,24 @@ style -->
                 '@keyframes animatetop {
                   from {top: -300px; opacity: 0}
                   to {top: 0; opacity: 1}
-                }'
+                }',
+                '#footer{
+                    background-color: #000000;
+                    height: 140px;
+                    width: 100%
+                    margin-top: 20px;
+                }\n',
+                '#output{
+                    background-color: #2b6dd6;
+                    color: white;
+                    border-color: #2b6dd6;
+                    outline: none;
+                    width: 200px;
+                    margin-left: 44%;
+                    margin-top: 40px;
+                    height: 50px;
+                    border-radius: 30px;
+                }\n'
 		   ])).
 
 script -->
